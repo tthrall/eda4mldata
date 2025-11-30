@@ -9,7 +9,7 @@ You can install the development version of eda4mldata from GitHub:
 remotes::install_github("tthrall/eda4mldata")
 ```
 
-## Datasets
+## Data sets
 
 The package provides the following datasets:
 
