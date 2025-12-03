@@ -14,10 +14,12 @@
 #' @source \url{https://www.gutenberg.org/}
 #'
 #' @examples
+#' \dontrun{
 #' library(dplyr)
 #'
 #' # Lines per novel
 #' hgwells |> count(gutenberg_id)
+#' }
 #'
 #' @seealso The \code{janeaustenr} package provides similar data for Jane Austen's novels
 "hgwells"

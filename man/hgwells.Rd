@@ -24,10 +24,12 @@ Text of four science fiction novels by H.G. Wells (1866-1946),
 sourced from Project Gutenberg. Boilerplate license text has been removed.
 }
 \examples{
+\dontrun{
 library(dplyr)
 
 # Lines per novel
 hgwells |> count(gutenberg_id)
+}
 
 }
 \seealso{
