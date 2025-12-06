@@ -8,7 +8,7 @@
 A tibble with 4 rows and 2 variables:
 \describe{
   \item{source}{Source of prediction (character)}
-  \item{fdr_pct}{Predicted or actual percentage for FDR (integer)}
+  \item{FDR_pct}{Predicted or actual percentage for FDR (integer)}
 }
 }
 \source{
@@ -35,10 +35,10 @@ biased Digest poll would find.
 
 Source values:
 \itemize{
-  \item \code{digest}: Literary Digest poll prediction
-  \item \code{gallup_re_digest}: Gallup's prediction of the Digest result
-  \item \code{gallup_re_election}: Gallup's prediction of the election
-  \item \code{election_result}: Actual election result
+  \item \code{Digest}: Literary Digest poll prediction
+  \item \code{Gallup re Digest}: Gallup's prediction of the Digest result
+  \item \code{Gallup re election}: Gallup's prediction of the election
+  \item \code{election result}: Actual election result
 }
 }
 \examples{

@@ -8,11 +8,11 @@ library(tibble)
 # 1936 Literary Digest poll predictions
 # From Freedman, Pisani, & Purves (2007), Chapter 19, Section 2
 lit_digest <- tribble(
-  ~source,              ~fdr_pct,
-  "digest",                   43L,
-  "gallup_re_digest",         44L,
-  "gallup_re_election",       56L,
-  "election_result",          62L
+  ~source,              ~FDR_pct,
+  "Digest",                   43L,
+  "Gallup re Digest",         44L,
+  "Gallup re election",       56L,
+  "election result",          62L
 )
 
 # Save to package data directory
