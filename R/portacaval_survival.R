@@ -6,7 +6,7 @@
 #'
 #' @format A tibble with 2 rows and 3 variables:
 #' \describe{
-#'   \item{design}{Study design (character): randomized or non_randomized}
+#'   \item{design}{Study design (character): randomized or not randomized}
 #'   \item{surgery}{Survival rate for surgery group (integer, percent)}
 #'   \item{control}{Survival rate for control group (integer, percent)}
 #' }

@@ -10,7 +10,7 @@ library(tibble)
 portacaval_survival <- tribble(
   ~design,          ~surgery, ~control,
   "randomized",          60L,      60L,
-  "non_randomized",      60L,      45L
+  "not randomized",      60L,      45L
 )
 
 # Save to package data directory

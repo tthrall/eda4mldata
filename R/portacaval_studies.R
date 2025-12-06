@@ -5,8 +5,8 @@
 #'
 #' @format A tibble with 3 rows and 4 variables:
 #' \describe{
-#'   \item{design}{Study design (character): no_controls, controls_not_randomized,
-#'     or randomized_controlled}
+#'   \item{design}{Study design (character): no controls, controls not randomized,
+#'     or randomized controlled}
 #'   \item{marked}{Number of studies reporting marked improvement (integer)}
 #'   \item{moderate}{Number of studies reporting moderate improvement (integer)}
 #'   \item{none}{Number of studies reporting no improvement (integer)}
