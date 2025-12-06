@@ -26,7 +26,8 @@ Results from the 1954 Salk polio vaccine field trial using the
 NFIP observed-control design.
 }
 \details{
-In this design, second-graders whose parents consented received the
+In this design by the National Foundation for Infantile Paralysis
+(NFIP), second-graders whose parents consented received the
 vaccine (treatment), while first- and third-graders served as the
 control group. This is an observed-control rather than randomized
 design, and is subject to confounding because parental consent was
