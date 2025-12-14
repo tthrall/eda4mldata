@@ -1,8 +1,5 @@
 ## code to prepare `learning_graph` dataset for eda4mldata
 
-library(tibble)
-library(dplyr)
-
 # =============================================================================
 # LearningGraph: A knowledge graph for skills-based learning in data science
 #
@@ -100,16 +97,32 @@ lg_work_roles <- tibble::tribble(
 )
 
 # -----------------------------------------------------------------------------
-# Courses - Selected to align with EDA4ML textbook chapters
+# Courses - Expanded to cover all 18 skills
+#
+# Design rationale:
+#   - 15 courses provide complete coverage of all skills
+#   - Inspired by curricula from Georgia Tech OMSA, UC Berkeley MIDS,
+#     Stanford MS Statistics, CMU MSML, and JHU MS Data Science
+#   - Each course teaches 1-3 skills
+#   - Course prerequisites form a DAG (see lg_course_prereq below)
 # -----------------------------------------------------------------------------
 lg_courses <- tibble::tribble(
-  ~course_id, ~course_tag,     ~course_name,                           ~provider,
-  1L, "stat_methods",   "Statistical Methods and Data Analysis", "JHU",
-  2L, "algo_ds",        "Algorithms for Data Science",           "JHU",
-  3L, "data_patterns",  "Data Patterns and Representations",     "JHU",
-  4L, "data_engr",      "Data Engineering Principles",           "JHU",
-  5L, "agent_fndns",    "Foundations of Agentic AI",             "JHU",
-  6L, "ml_fndns",       "Machine Learning Foundations",          "Coursera"
+  ~course_id, ~course_tag, ~course_name,
+  1L,  "C01", "Introduction to Programming",
+  2L,  "C02", "Algorithms & Computation",
+  3L,  "C03", "Probability Theory",
+  4L,  "C04", "Linear Algebra",
+  5L,  "C05", "Graph Theory & Networks",
+  6L,  "C06", "Optimization Methods",
+  7L,  "C07", "Data Collection & Management",
+  8L,  "C08", "Data Cleaning & Preparation",
+  9L,  "C09", "Exploratory Data Analysis",
+  10L, "C10", "Data Visualization",
+  11L, "C11", "Experimental Design",
+  12L, "C12", "Linear Models",
+  13L, "C13", "Statistical Inference",
+  14L, "C14", "Statistical Learning",
+  15L, "C15", "Data Science Communication"
 )
 
 # -----------------------------------------------------------------------------
@@ -186,43 +199,53 @@ lg_has_skill <- tibble::tribble(
 
 # -----------------------------------------------------------------------------
 # Edge: requires_skill (Work Role → Skill, weighted by required proficiency)
+#
+# Proficiency framework (based on typical career progression):
+#   - Entry/Mid (2-5 yrs): concentration skills at level 2, supporting at 1-2
+#   - Mid (3-5 yrs): concentration skills at 2-3, supporting at 2
+#   - Senior (5+ yrs): concentration skills at 3, supporting at 2
+#   - Level 4 (Master) reserved for thought leaders, not job requirements
 # -----------------------------------------------------------------------------
 lg_requires_skill <- tibble::tribble(
   ~role_id, ~skill_id, ~required_proficiency,
-  # Data Analyst
-  1L, 11L, 3L,   # data_cleaning - Advanced
-  1L, 12L, 3L,   # EDA - Advanced
-  1L, 13L, 4L,   # data_visualization - Master
-  1L,  5L, 3L,   # data_narratives - Advanced
-  1L,  2L, 2L,   # programming - Intermediate
-  1L, 16L, 2L,   # linear_models - Intermediate
-  1L,  4L, 2L,   # limits - Intermediate
+  # Data Analyst (Entry/Mid level, 2-5 years)
+  1L, 11L, 2L,   # data_cleaning - Intermediate (concentration)
+  1L, 12L, 2L,   # EDA - Intermediate (concentration)
+  1L, 13L, 2L,   # data_visualization - Intermediate (concentration)
+  1L,  5L, 2L,   # data_narratives - Intermediate (concentration)
+  1L,  2L, 1L,   # programming - Basic (supporting)
+  1L, 16L, 1L,   # linear_models - Basic (supporting)
+  1L,  4L, 2L,   # limits - Intermediate (concentration)
 
-  # Data Scientist
-  2L,  2L, 3L,   # programming - Advanced
-  2L,  7L, 3L,   # probability_theory - Advanced
-  2L,  8L, 3L,   # linear_algebra - Advanced
-  2L, 12L, 4L,   # EDA - Master
-  2L, 16L, 3L,   # linear_models - Advanced
-  2L, 17L, 3L,   # inference_prediction - Advanced
-  2L, 18L, 3L,   # statistical_learning - Advanced
-  2L, 14L, 3L,   # feature_engineering - Advanced
-  2L,  3L, 3L,   # problem_formulation - Advanced
-  2L,  5L, 3L,   # data_narratives - Advanced
-  2L,  4L, 3L,   # limits - Advanced
+  # Data Scientist (Mid level, 3-5 years)
+  2L,  2L, 2L,   # programming - Intermediate (supporting)
+  2L,  7L, 2L,   # probability_theory - Intermediate (supporting)
+  2L,  8L, 2L,   # linear_algebra - Intermediate (supporting)
+  2L, 12L, 3L,   # EDA - Advanced (concentration)
+  2L, 16L, 2L,   # linear_models - Intermediate (concentration)
+  2L, 17L, 2L,   # inference_prediction - Intermediate (concentration)
+  2L, 18L, 2L,   # statistical_learning - Intermediate (concentration)
+  2L, 14L, 2L,   # feature_engineering - Intermediate (concentration)
+  2L,  3L, 2L,   # problem_formulation - Intermediate (concentration)
+  2L,  5L, 2L,   # data_narratives - Intermediate (concentration)
+  2L,  4L, 2L,   # limits - Intermediate (concentration)
 
-  # AI/ML Specialist
-  3L,  1L, 4L,   # algorithms - Master
-  3L,  2L, 4L,   # programming - Master
-  3L,  8L, 3L,   # linear_algebra - Advanced
-  3L, 10L, 3L,   # optimization - Advanced
-  3L, 18L, 4L,   # statistical_learning - Master
-  3L, 14L, 3L,   # feature_engineering - Advanced
-  3L,  9L, 2L    # graph_theory - Intermediate
+  # AI/ML Specialist (Senior level, 5+ years)
+  3L,  1L, 3L,   # algorithms - Advanced (concentration)
+  3L,  2L, 3L,   # programming - Advanced (concentration)
+  3L,  8L, 2L,   # linear_algebra - Intermediate (supporting)
+  3L, 10L, 3L,   # optimization - Advanced (concentration)
+  3L, 18L, 3L,   # statistical_learning - Advanced (concentration)
+  3L, 14L, 2L,   # feature_engineering - Intermediate (supporting)
+  3L,  9L, 2L    # graph_theory - Intermediate (supporting)
 )
 
 # -----------------------------------------------------------------------------
 # Edge: prerequisite (Skill → Skill, directed)
+#
+# Note: This encodes *conceptual* dependencies between skills.
+# Course prerequisites (lg_course_prereq) encode *curricular* ordering.
+# These are complementary views, not redundant.
 # -----------------------------------------------------------------------------
 lg_prerequisite <- tibble::tribble(
   ~skill_from_id, ~skill_to_id,
@@ -264,42 +287,67 @@ lg_prerequisite <- tibble::tribble(
 )
 
 # -----------------------------------------------------------------------------
+# Edge: course_prereq (Course → Course, directed)
+#
+# Encodes curricular ordering: which courses must be taken before others.
+# Entry points (no prerequisites): C01, C03, C04
+#
+# Design decisions (see lg-course-expansion-2025-12-14a transcript):
+#   - C10 requires C09 (EDA shows what to aim for in visualization)
+#   - C12 and C13 are parallel (both require C03, C04)
+#   - C14 requires C06, C12, AND C13
+#   - C15 requires C09 and C12 but NOT C14 (lightened prerequisites)
+# -----------------------------------------------------------------------------
+lg_course_prereq <- tibble::tribble(
+  ~course_from_id, ~course_to_id, ~rationale,
+  1L,  2L, "Algorithms require implementation skills",
+  1L,  7L, "Data collection requires scripting, APIs",
+  2L,  5L, "Graph algorithms build on algorithmic thinking",
+  4L,  5L, "Adjacency matrices, Laplacian, spectral methods",
+  4L,  6L, "Gradients, Hessians, convexity",
+  7L,  8L, "Need data to clean",
+  3L,  9L, "Distributions, correlation, probabilistic summaries",
+  4L,  9L, "PCA, dimensionality reduction",
+  8L,  9L, "EDA assumes clean(ish) data",
+  9L, 10L, "EDA shows what to aim for in visualization",
+  3L, 11L, "Randomization, power analysis",
+  3L, 12L, "Distributional assumptions",
+  4L, 12L, "Projection, least squares geometry",
+  3L, 13L, "Foundational for all inference",
+  6L, 14L, "Regularization, gradient methods",
+  12L, 14L, "Linear models as foundation for extensions",
+  13L, 14L, "Inference principles for model evaluation",
+  9L, 15L, "Must have done analysis to communicate it",
+  12L, 15L, "Must have models to explain"
+)
+
+# -----------------------------------------------------------------------------
 # Edge: teaches (Course → Skill, weighted by level taught)
+#
+# Each course teaches 1-3 skills. The proficiency column indicates the
+# maximum level a student can achieve by completing that course.
 # -----------------------------------------------------------------------------
 lg_teaches <- tibble::tribble(
-  ~course_id, ~skill_id, ~skill_level_taught,
-  # Statistical Methods and Data Analysis
-  1L,  7L, 2L,   # probability_theory - Intermediate
-  1L, 15L, 2L,   # experimental_design - Intermediate
-  1L, 16L, 3L,   # linear_models - Advanced
-  1L, 17L, 3L,   # inference_prediction - Advanced
-  1L, 12L, 3L,   # EDA - Advanced
-
-  # Algorithms for Data Science
-  2L,  1L, 3L,   # algorithms - Advanced
-  2L,  2L, 2L,   # programming - Intermediate
-  2L,  9L, 2L,   # graph_theory - Intermediate
-  2L, 10L, 2L,   # optimization - Intermediate
-
-  # Data Patterns and Representations
-  3L,  8L, 3L,   # linear_algebra - Advanced
-  3L, 14L, 3L,   # feature_engineering - Advanced
-  3L, 18L, 3L,   # statistical_learning - Advanced
-
-  # Data Engineering Principles
-  4L,  6L, 3L,   # data_collection - Advanced
-  4L, 11L, 3L,   # data_cleaning - Advanced
-  4L,  2L, 2L,   # programming - Intermediate
-
-  # Foundations of Agentic AI
-  5L,  1L, 2L,   # algorithms - Intermediate
-  5L,  3L, 2L,   # problem_formulation - Intermediate
-
-  # Machine Learning Foundations
-  6L,  8L, 2L,   # linear_algebra - Intermediate
-  6L,  7L, 2L,   # probability_theory - Intermediate
-  6L, 18L, 3L,   # statistical_learning - Advanced
-  6L, 10L, 2L    # optimization - Intermediate
+  ~course_id, ~skill_id, ~proficiency,
+  1L,  2L, 3L,   # C01 teaches Programming to Advanced
+  2L,  1L, 3L,   # C02 teaches Algorithms to Advanced
+  3L,  7L, 3L,   # C03 teaches Probability Theory to Advanced
+  4L,  8L, 3L,   # C04 teaches Linear Algebra to Advanced
+  5L,  9L, 3L,   # C05 teaches Graph Theory to Advanced
+  6L, 10L, 3L,   # C06 teaches Optimization to Advanced
+  7L,  6L, 3L,   # C07 teaches Data Collection to Advanced
+  8L, 11L, 3L,   # C08 teaches Data Cleaning to Advanced
+  9L, 12L, 3L,   # C09 teaches EDA to Advanced
+  9L, 14L, 2L,   # C09 teaches Feature Engineering to Intermediate (partial)
+  10L, 13L, 3L,  # C10 teaches Data Visualization to Advanced
+  11L, 15L, 3L,  # C11 teaches Experimental Design to Advanced
+  12L, 16L, 3L,  # C12 teaches Linear Models to Advanced
+  13L, 17L, 3L,  # C13 teaches Inference & Prediction to Advanced
+  14L, 18L, 3L,  # C14 teaches Statistical Learning to Advanced
+  14L, 14L, 3L,  # C14 teaches Feature Engineering to Advanced (full)
+  15L,  3L, 3L,  # C15 teaches Problem Formulation to Advanced
+  15L,  4L, 3L,  # C15 teaches Limitations to Advanced
+  15L,  5L, 3L   # C15 teaches Data Narratives to Advanced
 )
 
 # -----------------------------------------------------------------------------
@@ -310,18 +358,25 @@ lg_teaches <- tibble::tribble(
 # -----------------------------------------------------------------------------
 lg_schema <- tibble::tribble(
   ~edge_type,            ~source_type, ~target_type,  ~property,     ~property_semantics,
- "has_skill",           "learner",    "skill",       "proficiency", "current_level",
+  "has_skill",           "learner",    "skill",       "proficiency", "current_level",
   "requires_skill",      "work_role",  "skill",       "proficiency", "minimum_threshold",
   "prerequisite",        "skill",      "skill",       NA_character_, NA_character_,
+  "course_prereq",       "course",     "course",      NA_character_, NA_character_,
   "teaches",             "course",     "skill",       "proficiency", "maximum_ceiling",
-  "skill_in_competency", "skill",      "competency",  NA_character_, NA_character_
+  "skill_in_cmp",        "skill",      "competency",  NA_character_, NA_character_
 )
 
-# Note on skill_in_competency: This relationship is normalized into the skills
+# Note on skill_in_cmp: This relationship is normalized into the skills
 # table via the cmp_id column rather than stored as a separate edge table.
 # This design choice reduces redundancy since each skill belongs to exactly
 # one competency. The schema documents it as a conceptual edge type for
 # completeness.
+#
+# Note on prerequisite vs course_prereq: These are complementary views.
+# - prerequisite (skill → skill): conceptual dependencies
+# - course_prereq (course → course): curricular ordering
+# Courses bundle multiple skills, so course prerequisites don't derive
+# directly from skill prerequisites.
 
 # -----------------------------------------------------------------------------
 # Assemble the LearningGraph as a single list object
@@ -334,7 +389,7 @@ learning_graph <- list(
     source = "Based on IC Data Science CRG (2023), UNCLASSIFIED",
     reference = "Office of the Director of National Intelligence",
     inspiration = "Workera.ai skills intelligence platform",
-    version = "1.0.2",
+    version = "1.1.1",
     schema = lg_schema
   ),
 
@@ -355,6 +410,7 @@ learning_graph <- list(
     has_skill      = lg_has_skill,
     requires_skill = lg_requires_skill,
     prerequisite   = lg_prerequisite,
+    course_prereq  = lg_course_prereq,
     teaches        = lg_teaches
   )
 )
@@ -373,6 +429,7 @@ usethis::use_data(
   lg_has_skill,
   lg_requires_skill,
   lg_prerequisite,
+  lg_course_prereq,
   lg_teaches,
   lg_schema,
   overwrite = TRUE
