@@ -1,5 +1,5 @@
 # wine_quality.R
-# Prepare wine quality dataset for eda4mldata package
+# Prepare wine quality dataset for eda4mlr package
 
 library(tidyverse)
 

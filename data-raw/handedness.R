@@ -1,6 +1,6 @@
 ##
 # handedness.R
-#   Prepare handedness data set for `eda4mldata` package
+#   Prepare handedness data set for `eda4mlr` package
 ##
 
 library(tibble)

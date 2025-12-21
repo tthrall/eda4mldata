@@ -1,6 +1,6 @@
 ##
 # olympic_running.R
-#   Prepare Olympic running data set for `eda4mldata` package
+#   Prepare Olympic running data set for `eda4mlr` package
 ##
 
 library(tibble)

@@ -40,7 +40,7 @@ sorting systems.
 
 ### Original Source
 
-The `eda4mldata::dry_beans` dataset is derived from `beans::beans`, which 
+The `eda4mlr::dry_beans` dataset is derived from `beans::beans`, which 
 provides the UCI Machine Learning Repository version of the data.
 
 ```{r}
@@ -95,7 +95,7 @@ dry_beans <- beans::beans |>
 
 ```{r}
 #| label: load-data
-data(dry_beans, package = "eda4mldata")
+data(dry_beans, package = "eda4mlr")
 ```
 
 ### Dimensions

@@ -1,6 +1,6 @@
 ##
 # portacaval_studies.R
-#   Prepare portacaval shunt study results data for eda4mldata package
+#   Prepare portacaval shunt study results data for eda4mlr package
 ##
 
 library(tibble)

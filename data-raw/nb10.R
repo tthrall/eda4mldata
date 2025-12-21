@@ -1,6 +1,6 @@
 ##
 # nb10.R
-#   Prepare NB10 weighing data for eda4mldata package
+#   Prepare NB10 weighing data for eda4mlr package
 ##
 
 library(tibble)

@@ -1,6 +1,6 @@
 ##
 # portacaval_survival.R
-#   Prepare portacaval shunt survival data for eda4mldata package
+#   Prepare portacaval shunt survival data for eda4mlr package
 ##
 
 library(tibble)

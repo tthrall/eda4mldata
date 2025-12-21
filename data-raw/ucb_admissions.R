@@ -1,6 +1,6 @@
 ##
 # ucb_admissions.R
-#   Prepare UC Berkeley admissions data for eda4mldata package
+#   Prepare UC Berkeley admissions data for eda4mlr package
 ##
 
 library(tibble)

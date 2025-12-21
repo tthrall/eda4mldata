@@ -1,6 +1,6 @@
 ##
 # salk_blind.R
-#   Prepare Salk vaccine randomized controlled trial data for eda4mldata package
+#   Prepare Salk vaccine randomized controlled trial data for eda4mlr package
 ##
 
 library(tibble)

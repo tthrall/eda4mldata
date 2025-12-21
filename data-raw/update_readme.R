@@ -65,16 +65,16 @@ citations_md <- citations |>
 
 # --- Assemble README ---
 readme_template <- glue::glue('
-# eda4mldata
+# eda4mlr
 
 Companion R package for the textbook *Exploratory Data Analysis for Machine Learning* by Tony Thrall.
 
 ## Installation
 
-You can install the development version of eda4mldata from GitHub:
+You can install the development version of eda4mlr from GitHub:
 ```r
 # install.packages("remotes")
-remotes::install_github("tthrall/eda4mldata")
+remotes::install_github("tthrall/eda4mlr")
 ```
 
 ## Datasets
@@ -88,7 +88,7 @@ The package provides the following datasets:
 
 Handedness counts by sex from Freedman, Pisani & Purves (2007), used to illustrate chi-squared tests for independence.
 ```r
-library(eda4mldata)
+library(eda4mlr)
 data(handedness)
 handedness
 #> # A tibble: 6 × 3

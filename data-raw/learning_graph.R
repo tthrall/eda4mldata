@@ -1,4 +1,4 @@
-## code to prepare `learning_graph` dataset for eda4mldata
+## code to prepare `learning_graph` dataset for eda4mlr
 
 # =============================================================================
 # LearningGraph: A knowledge graph for skills-based learning in data science

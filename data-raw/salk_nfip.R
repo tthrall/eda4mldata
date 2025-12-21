@@ -1,6 +1,6 @@
 ##
 # salk_nfip.R
-#   Prepare Salk vaccine NFIP observed-control design data for eda4mldata package
+#   Prepare Salk vaccine NFIP observed-control design data for eda4mlr package
 ##
 
 library(tibble)

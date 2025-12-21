@@ -1,6 +1,6 @@
 ##
 # us_arrests.R
-# Prepare US arrests dataset for eda4mldata package
+# Prepare US arrests dataset for eda4mlr package
 ##
 
 # Load USArrests from base R datasets

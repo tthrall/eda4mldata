@@ -1,6 +1,6 @@
 ##
 # us_elections.R
-#   Prepare US presidential election polling data for eda4mldata package
+#   Prepare US presidential election polling data for eda4mlr package
 ##
 
 library(tibble)

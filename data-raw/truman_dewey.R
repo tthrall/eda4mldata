@@ -1,6 +1,6 @@
 ##
 # truman_dewey.R
-#   Prepare 1948 election polling data for eda4mldata package
+#   Prepare 1948 election polling data for eda4mlr package
 ##
 
 library(tibble)

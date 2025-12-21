@@ -1,6 +1,6 @@
 ##
 # us_colleges.R
-#   Prepare US colleges dataset for eda4mldata package
+#   Prepare US colleges dataset for eda4mlr package
 ##
 
 # Load College data from ISLR2 package

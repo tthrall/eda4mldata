@@ -1,6 +1,6 @@
 ##
 # lit_digest.R
-#   Prepare 1936 Literary Digest poll data for eda4mldata package
+#   Prepare 1936 Literary Digest poll data for eda4mlr package
 ##
 
 library(tibble)

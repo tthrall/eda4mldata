@@ -1,3 +1,10 @@
+# eda4mlr 1.2.0
+
+## New package name
+
+* Package renamed from eda4mldata to eda4mlr
+* Added workbook template functions (coming soon)
+
 # eda4mldata 1.1.1
 
 ## New datasets

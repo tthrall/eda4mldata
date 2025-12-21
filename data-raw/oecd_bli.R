@@ -1,6 +1,6 @@
 ##
 # oecd_bli.R
-#   Prepare OECD Better Life Index data set for `eda4mldata` package
+#   Prepare OECD Better Life Index data set for `eda4mlr` package
 ##
 
 library(dplyr)

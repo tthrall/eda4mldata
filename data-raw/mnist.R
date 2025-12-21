@@ -1,6 +1,6 @@
 ###
 # mnist.R
-#   Prepare MNIST subsets for eda4mldata package
+#   Prepare MNIST subsets for eda4mlr package
 ###
 
 library(tidyverse)

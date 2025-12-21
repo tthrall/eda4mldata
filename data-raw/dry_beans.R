@@ -1,6 +1,6 @@
 ##
 # dry_beans.R
-#   Prepare dry beans dataset for eda4mldata package
+#   Prepare dry beans dataset for eda4mlr package
 ##
 
 # Load beans data from beans package

@@ -43,7 +43,7 @@ This dataset is historically significant for several reasons:
 
 ### Original Source
 
-The `eda4mldata::galton_families` dataset is derived from 
+The `eda4mlr::galton_families` dataset is derived from 
 `HistData::GaltonFamilies`, which contains Galton's original records of 
 934 children from 205 families.
 
@@ -93,7 +93,7 @@ galton_families <- HistData::GaltonFamilies |>
 
 ```{r}
 #| label: load-data
-data(galton_families, package = "eda4mldata")
+data(galton_families, package = "eda4mlr")
 ```
 
 ### Dimensions

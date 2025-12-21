@@ -1,6 +1,6 @@
 ##
 # galton_families.R
-#   Prepare Galton family heights dataset for eda4mldata package
+#   Prepare Galton family heights dataset for eda4mlr package
 ##
 
 # Load Galton's family data from HistData package

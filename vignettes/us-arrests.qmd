@@ -36,7 +36,7 @@ crime prevalence and law enforcement practices, which vary by jurisdiction.
 
 ### Original Source
 
-The `eda4mldata::us_arrests` dataset is derived from `datasets::USArrests`, 
+The `eda4mlr::us_arrests` dataset is derived from `datasets::USArrests`, 
 a base R dataset where state names appear as row names rather than a column.
 
 ```{r}
@@ -83,7 +83,7 @@ us_arrests <- datasets::USArrests |>
 
 ```{r}
 #| label: load-data
-data(us_arrests, package = "eda4mldata")
+data(us_arrests, package = "eda4mlr")
 ```
 
 ### Dimensions

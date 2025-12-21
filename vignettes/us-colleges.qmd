@@ -37,7 +37,7 @@ remain instructive.
 
 ### Original Source
 
-The `eda4mldata::us_colleges` dataset is derived from `ISLR2::College`, 
+The `eda4mlr::us_colleges` dataset is derived from `ISLR2::College`, 
 where college names appear as row names.
 
 ```{r}
@@ -94,7 +94,7 @@ us_colleges <- ISLR2::College |>
 
 ```{r}
 #| label: load-data
-data(us_colleges, package = "eda4mldata")
+data(us_colleges, package = "eda4mlr")
 ```
 
 ### Dimensions
