@@ -7,7 +7,12 @@
 list_workbooks()
 }
 \value{
-Character vector of chapter identifiers (without the -wkbk.qmd suffix).
+A data frame with columns:
+  \describe{
+    \item{chapter}{Integer chapter number}
+    \item{slug}{Character identifier used in \code{create_workbook()}}
+    \item{title}{Descriptive chapter title}
+  }
 }
 \description{
 Shows all workbook templates available in the eda4mlr package.

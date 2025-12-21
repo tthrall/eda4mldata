@@ -7,8 +7,8 @@
 create_workbook(chapter, overwrite = FALSE)
 }
 \arguments{
-\item{chapter}{Character string identifying the chapter. Use
-\code{list_workbooks()} to see available options.}
+\item{chapter}{Chapter identifier. Either an integer chapter number or a
+character slug. Use \code{list_workbooks()} to see available options.}
 
 \item{overwrite}{Logical. If \code{TRUE}, overwrite existing file with same
 name. Default is \code{FALSE}.}
@@ -22,7 +22,10 @@ to complete.
 }
 \examples{
 \dontrun{
-# Create the EDA chapter workbook
+# Create by chapter number
+create_workbook(3)
+
+# Create by slug
 create_workbook("eda")
 
 # See available workbooks

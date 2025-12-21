@@ -1,0 +1,7 @@
+chapter	slug	title
+1	"intro"	"Introduction to EDA"
+2	"rbasics"	"R Programming Basics"
+3	"eda"	"Exploratory Data Analysis"
+4	"viz"	"Data Visualization"
+5	"tidy"	"Tidy Data"
+6	"dim-reduce"	"Dimension Reduction"
