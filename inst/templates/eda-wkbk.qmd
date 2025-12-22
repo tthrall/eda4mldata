@@ -25,45 +25,179 @@ library(eda4mlr)
 
 ## Learning Objectives
 
-By the end of this workbook, you will be able to:
+Here are the learning goals for this chapter:
 
-1. [Objective 1]
-2. [Objective 2]
-3. [Objective 3]
+1. Distinguish between exploratory and confirmatory data analysis and explain when each is appropriate.
+2. Select appropriate measures of central tendency (mean, median) and dispersion (SD, IQR) based on data characteristics.
+3. Construct basic visualizations: histograms, scatter diagrams, and box plots.
+4. Interpret scatter plots, box plots, and histograms to identify patterns, outliers, and distributional shape.
+5. Formulate questions that can initiate exploratory analysis of an unfamiliar dataset.
 
 ## The Big Picture
 
-> [Framing question connecting exercises to ML goals]
+> Given a new dataset, how do you begin to understand what's in it—before fitting any models?
 
 ---
 
-## Exercise 1: [Title]
+## Choosing Your Dataset
 
-### Task 1.1
+For this workbook, you'll select a dataset to explore. This mirrors real practice: EDA begins with finding data worth investigating.
 
-[Task description]
+**Criteria for your dataset:**
+
+- At least 50 observations
+- At least 2 variables, with at least 1 numeric variable
+- Something you're genuinely interested in
+
+**Where to look:**
+
+- [Kaggle Datasets](https://www.kaggle.com/datasets)
+- [UCI Machine Learning Repository](https://archive.ics.uci.edu/)
+- [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
+- Government open data portals (data.gov, ONS, etc.)
+
+**Fallback options:** If you'd prefer a ready-made dataset, `palmerpenguins::penguins` or `ggplot2::diamonds` work well.
 
 ```{r}
-#| label: ex1-1
+#| label: load-data
+
+# Load your dataset here
+# Example: my_data <- read.csv("path/to/your/data.csv")
+# Example: my_data <- palmerpenguins::penguins
+
+```
+
+---
+
+## Exercise 1: First Look
+
+Before computing anything, orient yourself to the data.
+
+### Task 1.1: Structure
+
+Examine the dimensions and variable types. How many observations? How many variables? Which are numeric, which are categorical?
+
+```{r}
+#| label: ex1-structure
 
 # Your code here
 
 ```
 
+### Task 1.2: Initial Questions
+
+Based on what you see, write down 3–5 questions you'd want to investigate. These don't need to be answerable yet—just genuine curiosities.
+
+*Your questions:*
+
+1. 
+2. 
+3. 
+
+### Task 1.3: Exploratory vs. Confirmatory
+
+Which of your questions are exploratory (open-ended, pattern-seeking) and which are confirmatory (testing a specific hypothesis)? Is this distinction always clear?
+
+*Your response:*
+
+
 
 ---
 
-## Your Turn: Practice Problems
+## Exercise 2: Summarizing and Visualizing
+
+Now dig into the distributions.
+
+### Task 2.1: Summary Statistics
+
+Choose one or two numeric variables. For each, compute the mean, median, SD, and IQR. Based on these values, what can you infer about the shape of each distribution?
+
+```{r}
+#| label: ex2-summaries
+
+# Your code here
+
+```
+
+*Your interpretation:*
+
+
+
+### Task 2.2: Histograms
+
+Create histograms for the same variable(s). Do the visualizations confirm your inferences from the summary statistics?
+
+```{r}
+#| label: ex2-histograms
+
+# Your code here
+
+```
+
+### Task 2.3: Choosing Measures
+
+For each variable, would you report mean/SD or median/IQR to a colleague? Why?
+
+*Your response:*
+
+
+
+---
+
+## Exercise 3: Relationships and Anomalies
+
+Look for structure across variables.
+
+### Task 3.1: Scatter Plot
+
+*(Skip if your dataset does not contain two numeric variables.)*
+
+Choose two numeric variables you suspect might be related. Create a scatter plot. What pattern (if any) do you see?
+
+```{r}
+#| label: ex3-scatter
+
+# Your code here
+
+```
+
+### Task 3.2: Box Plots by Group
+
+*(Skip if not applicable, or consider creating a grouping variable by binning one of your numeric variables.)*
+
+Choose a numeric variable and a categorical variable. Create box plots of the numeric variable, grouped by category. What do you notice?
+
+```{r}
+#| label: ex3-boxplots
+
+# Your code here
+
+```
+
+### Task 3.3: Outliers and Surprises
+
+Did you encounter any outliers or unexpected patterns? How would you investigate further?
+
+*Your response:*
+
+
+
+---
+
+## Practice Problems
 
 ### Problem 1
 
-[Problem description]
+Return to the questions you wrote in Exercise 1. Can you now answer (or partially answer) any of them? What additional data or analysis would you need?
 
-```{r}
-#| label: practice-1
+*Your response:*
 
-# Your code here
 
-```
+
+### Problem 2
+
+Swap datasets with a classmate (or choose a second dataset yourself). Spend 10 minutes exploring it cold. What's the first thing you look at? What questions emerge?
+
+*Your response:*
 
 
