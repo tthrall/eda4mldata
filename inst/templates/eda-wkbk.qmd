@@ -1,5 +1,5 @@
 ---
-title: "Chapter 3 Workbook: Exploratory Data Analysis"
+title: "Chapter 1 Workbook: Exploratory Data Analysis"
 subtitle: "EDA for Machine Learning"
 author: "Your Name"
 date: today

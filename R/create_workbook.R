@@ -7,6 +7,8 @@
 #'   character slug. Use \code{list_workbooks()} to see available options.
 #' @param overwrite Logical. If \code{TRUE}, overwrite existing file with same
 #'   name. Default is \code{FALSE}.
+#' @param open Logical. If \code{TRUE} and RStudio is available, open the file
+#'   automatically. Default is \code{TRUE}.
 #'
 #' @return Invisibly returns the path to the created file.
 #'
@@ -23,7 +25,7 @@
 #' }
 #'
 #' @export
-create_workbook <- function(chapter, overwrite = FALSE) {
+create_workbook <- function(chapter, overwrite = FALSE, open = TRUE) {
 
   # Get available workbooks
   available <- list_workbooks()
@@ -86,15 +88,27 @@ create_workbook <- function(chapter, overwrite = FALSE) {
   }
 
   # Copy template
-  file.copy(template_path, dest_path, overwrite = overwrite)
+  success <- file.copy(template_path, dest_path, overwrite = overwrite)
+  if (!success) {
+    stop("Failed to copy template to '", dest_path, "'.", call. = FALSE)
+  }
 
-  # Get title for message
+  # Get chapter info for message
+  chapter_num <- available$chapter[available$slug == slug]
   title <- available$title[available$slug == slug]
 
+  message(
+    "Created: ", template_name, "\n",
+    "Chapter ", chapter_num, ": ", title, "\n",
+    "Open in RStudio and begin working through the exercises."
+  )
 
-  message("Created: ", template_name)
-  message("Chapter ", available$chapter[available$slug == slug], ": ", title)
-  message("Open in RStudio and begin working through the exercises.")
+  # Open in RStudio if available and requested
+  if (open && requireNamespace("rstudioapi", quietly = TRUE)) {
+    if (rstudioapi::isAvailable()) {
+      rstudioapi::navigateToFile(dest_path)
+    }
+  }
 
   invisible(dest_path)
 }
@@ -104,7 +118,7 @@ create_workbook <- function(chapter, overwrite = FALSE) {
 #'
 #' Shows all workbook templates available in the eda4mlr package.
 #'
-#' @return A data frame with columns:
+#' @return A tibble with columns:
 #'   \describe{
 #'     \item{chapter}{Integer chapter number}
 #'     \item{slug}{Character identifier used in \code{create_workbook()}}
@@ -126,11 +140,10 @@ list_workbooks <- function() {
 
   if (metadata_path == "") {
     return(
-      data.frame(
+      tibble::tibble(
         chapter = integer(0),
         slug = character(0),
-        title = character(0),
-        stringsAsFactors = FALSE
+        title = character(0)
       )
     )
   }
@@ -143,11 +156,11 @@ list_workbooks <- function() {
   existing_slugs <- sub("-wkbk\\.qmd$", "", existing_files)
 
   # Filter metadata to only available templates
-  available <- metadata[metadata$slug %in% existing_slugs, ]
+  available <- metadata[metadata$slug %in% existing_slugs, , drop = FALSE]
 
-  # Sort by chapter number
-  available <- available[order(available$chapter), ]
+  # Sort by chapter number and convert to tibble
+  available <- available[order(available$chapter), , drop = FALSE]
+  available <- tibble::as_tibble(available)
 
-  rownames(available) <- NULL
-  available
+  return(available)
 }
