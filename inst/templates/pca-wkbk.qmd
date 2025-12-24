@@ -28,7 +28,7 @@ library(eda4mlr)
 Here are the learning goals for this chapter:
 
 1. Describe the goal and method of Principal Component Analysis (PCA).
-2. Compute principal components via eigendecomposition of the covariance matrix.
+2. Compute principal components via eigen-decomposition of the covariance matrix.
 3. Interpret loadings as the contribution of original variables to each principal component.
 4. Use the scree plot to determine how many components to retain.
 5. Project high-dimensional data onto principal components for visualization.
@@ -117,7 +117,7 @@ Run PCA using `stats::prcomp()`. Examine the output object.
 
 
 
-### Task 2.2: PCA via Eigendecomposition
+### Task 2.2: PCA via Eigen-decomposition
 
 Verify the results by computing PCA manually:
 
@@ -207,7 +207,7 @@ Plot your observations in the space of PC1 vs. PC2. If you have group labels (e.
 
 ### Task 4.2: Reconstruction Error
 
-Reconstruct the original data using only the first k principal components. Compute the reconstruction error for k = 1, 2, ..., p.
+Reconstruct the original data using only the first k principal components. Compute the reconstruction error for k = 1, 2, ..., d (where d denotes the number of original variables).
 
 ```{r}
 #| label: ex4-reconstruction

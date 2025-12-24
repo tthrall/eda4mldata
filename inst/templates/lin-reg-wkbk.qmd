@@ -88,9 +88,9 @@ Create a scatter plot of two numeric variables. Then answer:
 
 
 
-### Task 1.2: The Design Matrix
+### Task 1.2: The Feature Matrix
 
-Construct the design matrix X for a simple linear regression (include a column of 1s for the intercept). Verify the dimensions.
+Construct the feature matrix X for a simple linear regression (include a column of 1s for the intercept). Verify the dimensions.
 
 ```{r}
 #| label: ex1-design-matrix
@@ -128,7 +128,7 @@ Solve for $\hat{\beta}$ manually using matrix operations, then verify your answe
 
 The projection matrix (or "hat matrix") is: $H = X(X^T X)^{-1} X^T$
 
-Compute H and verify that the fitted values equal $Hy$.
+Compute H and verify that the fitted values $\hat{y}$ equal $Hy$.
 
 ```{r}
 #| label: ex2-projection
@@ -147,7 +147,7 @@ Compute H and verify that the fitted values equal $Hy$.
 
 ### Task 3.1: Why Center?
 
-Fit a regression with and without centering your predictor variables. Compare:
+Fit a regression with and without centering the response and predictor variables. Compare:
 
 - The estimated slopes
 - The estimated intercept

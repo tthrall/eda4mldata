@@ -1,5 +1,5 @@
 ---
-title: "Chapter 9 Workbook: Linear Discriminant Analysis"
+title: "Chapter 9 Workbook: Linear Discriminant Analysis (LDA)"
 subtitle: "EDA for Machine Learning"
 author: "Your Name"
 date: today
@@ -30,8 +30,8 @@ Here are the learning goals for this chapter:
 
 1. Explain the difference between LDA and PCA (maximizing variance versus maximizing class separation).
 2. Explain Fisher's LDA criterion as the ratio of between-class to within-class variance.
-3. Derive linear discriminant functions from multivariate normal class distributions.
-4. Apply LDA for classification and interpret the resulting decision boundaries.
+3. Derive linear discriminant functions from multivariate normal distributions per class.
+4. Apply LDA and interpret the resulting decision boundaries.
 5. Explain how to determine when the equal-covariance assumption fails and QDA may be preferred.
 6. Describe how discriminant directions are related to the eigenvalue problem involving within- and between-class covariance matrices.
 
@@ -87,7 +87,7 @@ Run PCA on your numeric variables (ignoring the class labels). Plot PC1 vs. PC2,
 
 ### Task 1.2: LDA Uses Labels
 
-Run LDA using `MASS::lda()`. Plot the first two linear discriminants, colored by class.
+Run LDA using `MASS::lda()`. Plot the first two linear discriminants, (LD1, LD2), colored by class.
 
 ```{r}
 #| label: ex1-lda
