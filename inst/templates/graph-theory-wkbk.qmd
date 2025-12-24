@@ -239,7 +239,7 @@ Re-plot your network, coloring nodes by community membership.
 
 ### Task 4.1: Node-Level Features
 
-Extract features for each node that could be used in a machine learning model:
+Select one or more node features that could be extracted from your graph and used in a machine learning model.  Consider features such as:
 
 - Degree
 - Clustering coefficient
@@ -257,7 +257,7 @@ Extract features for each node that could be used in a machine learning model:
 
 *(Skip if your network is not bipartite.)*
 
-If your network is bipartite (two types of nodes), project it onto a single-mode network. Interpret the resulting edge weights.
+If your network is bipartite (two types of nodes), project it onto a derived network all of whose nodes are of just one type. Interpret the resulting edge weights.
 
 ```{r}
 #| label: ex4-bipartite
@@ -272,7 +272,7 @@ If your network is bipartite (two types of nodes), project it onto a single-mode
 
 ### Task 4.3: Understanding vs. Prediction
 
-Describe the difference between using graph analysis to:
+In your own words when talking to a friend, what examples might you give and how would you describe the difference between using graph analysis to:
 
 1. Understand structure (descriptive): What communities exist? Who is central?
 2. Predict outcomes (predictive): Will this user churn? Will these nodes connect in the future?
